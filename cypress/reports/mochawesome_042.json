@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-06-26T16:12:09.518Z",
+    "end": "2024-06-26T16:12:09.988Z",
+    "duration": 470,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f71d6250-500a-4e39-8ca6-2cda0d743444",
+      "title": "",
+      "fullFile": "cypress\\e2e\\deposit.cy.js",
+      "file": "cypress\\e2e\\deposit.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8eb85091-857b-4a27-8e18-9fdea5221c9a",
+          "title": "Testing deposit API",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC_001_Deposit_Amount_For_valid_UserID",
+              "fullTitle": "Testing deposit API TC_001_Deposit_Amount_For_valid_UserID",
+              "timedOut": null,
+              "duration": 341,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('deposit').then(function (userData) {\n  this.userData = userData;\n  cy.request('POST', '/api/deposit', this.userData.userData1).then(response => {\n    expect(response.status).to.eq(200);\n    expect(response.body.success).to.be.true;\n    expect(response.body.message).contains('Deposited');\n  });\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:3000/api/deposit\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: http://localhost:3000/api/deposit\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/13.12.0 Chrome/118.0.5993.159 Electron/27.3.10 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 27\n}\nBody: {\"user_id\":1,\"amount\":1000}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"x-powered-by\": \"Express\",\n  \"content-security-policy\": \"default-src 'none'\",\n  \"x-content-type-options\": \"nosniff\",\n  \"content-type\": \"text/html; charset=utf-8\",\n  \"content-length\": \"1155\",\n  \"date\": \"Wed, 26 Jun 2024 16:12:09 GMT\",\n  \"connection\": \"keep-alive\",\n  \"keep-alive\": \"timeout=5\"\n}\nBody: <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>ReferenceError: transactions is not defined<br> &nbsp; &nbsp;at D:\\ExBankingAutomation\\server\\server.js:58:5<br> &nbsp; &nbsp;at Layer.handle [as handle_request] (D:\\ExBankingAutomation\\node_modules\\express\\lib\\router\\layer.js:95:5)<br> &nbsp; &nbsp;at next (D:\\ExBankingAutomation\\node_modules\\express\\lib\\router\\route.js:149:13)<br> &nbsp; &nbsp;at Route.dispatch (D:\\ExBankingAutomation\\node_modules\\express\\lib\\router\\route.js:119:3)<br> &nbsp; &nbsp;at Layer.handle [as handle_request] (D:\\ExBankingAutomation\\node_modules\\express\\lib\\router\\layer.js:95:5)<br> &nbsp; &nbsp;at D:\\ExBankingAutomation\\node_modules\\express\\lib\\router\\index.js:284:15<br> &nbsp; &nbsp;at Function.process_params (D:\\ExBankingAutomation\\node_modules\\express\\lib\\router\\index.js:346:12)<br> &nbsp; &nbsp;at next (D:\\ExBankingAutomation\\node_modules\\express\\lib\\router\\index.js:280:10)<br> &nbsp; &nbsp;at D:\\ExBankingAutomation\\node_modules\\body-parser\\lib\\read.js:137:5<br> &nbsp; &nbsp;at AsyncResource.runInAsyncScope (node:async_hooks:199:9)</pre>\n</body>\n</html>\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttp://localhost:3000/api/deposit\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: http://localhost:3000/api/deposit\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/13.12.0 Chrome/118.0.5993.159 Electron/27.3.10 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 27\n}\nBody: {\"user_id\":1,\"amount\":1000}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 500 - Internal Server Error\nHeaders: {\n  \"x-powered-by\": \"Express\",\n  \"content-security-policy\": \"default-src 'none'\",\n  \"x-content-type-options\": \"nosniff\",\n  \"content-type\": \"text/html; charset=utf-8\",\n  \"content-length\": \"1155\",\n  \"date\": \"Wed, 26 Jun 2024 16:12:09 GMT\",\n  \"connection\": \"keep-alive\",\n  \"keep-alive\": \"timeout=5\"\n}\nBody: <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>ReferenceError: transactions is not defined<br> &nbsp; &nbsp;at D:\\ExBankingAutomation\\server\\server.js:58:5<br> &nbsp; &nbsp;at Layer.handle [as handle_request] (D:\\ExBankingAutomation\\node_modules\\express\\lib\\router\\layer.js:95:5)<br> &nbsp; &nbsp;at next (D:\\ExBankingAutomation\\node_modules\\express\\lib\\router\\route.js:149:13)<br> &nbsp; &nbsp;at Route.dispatch (D:\\ExBankingAutomation\\node_modules\\express\\lib\\router\\route.js:119:3)<br> &nbsp; &nbsp;at Layer.handle [as handle_request] (D:\\ExBankingAutomation\\node_modules\\express\\lib\\router\\layer.js:95:5)<br> &nbsp; &nbsp;at D:\\ExBankingAutomation\\node_modules\\express\\lib\\router\\index.js:284:15<br> &nbsp; &nbsp;at Function.process_params (D:\\ExBankingAutomation\\node_modules\\express\\lib\\router\\index.js:346:12)<br> &nbsp; &nbsp;at next (D:\\ExBankingAutomation\\node_modules\\express\\lib\\router\\index.js:280:10)<br> &nbsp; &nbsp;at D:\\ExBankingAutomation\\node_modules\\body-parser\\lib\\read.js:137:5<br> &nbsp; &nbsp;at AsyncResource.runInAsyncScope (node:async_hooks:199:9)</pre>\n</body>\n</html>\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:3000/__cypress/runner/cypress_runner.js:132776:72)\n    at tryCatcher (http://localhost:3000/__cypress/runner/cypress_runner.js:1807:23)\n    at Promise._settlePromiseFromHandler (http://localhost:3000/__cypress/runner/cypress_runner.js:1519:31)\n    at Promise._settlePromise (http://localhost:3000/__cypress/runner/cypress_runner.js:1576:18)\n    at Promise._settlePromise0 (http://localhost:3000/__cypress/runner/cypress_runner.js:1621:10)\n    at Promise._settlePromises (http://localhost:3000/__cypress/runner/cypress_runner.js:1701:18)\n    at _drainQueueStep (http://localhost:3000/__cypress/runner/cypress_runner.js:2407:12)\n    at _drainQueue (http://localhost:3000/__cypress/runner/cypress_runner.js:2400:9)\n    at Async._drainQueues (http://localhost:3000/__cypress/runner/cypress_runner.js:2416:5)\n    at Async.drainQueues (http://localhost:3000/__cypress/runner/cypress_runner.js:2286:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://exbankingautomation/./cypress/e2e/deposit.cy.js:7:9)",
+                "diff": null
+              },
+              "uuid": "f7f68cab-572d-45eb-9953-f53412308e09",
+              "parentUUID": "8eb85091-857b-4a27-8e18-9fdea5221c9a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "f7f68cab-572d-45eb-9953-f53412308e09"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 341,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

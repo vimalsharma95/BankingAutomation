@@ -1,0 +1,132 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 0,
+    "pending": 0,
+    "failures": 2,
+    "start": "2024-06-26T13:46:55.622Z",
+    "end": "2024-06-26T13:46:56.320Z",
+    "duration": 698,
+    "testsRegistered": 2,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "40334322-e2d8-409f-8895-cfb4d485ffd8",
+      "title": "",
+      "fullFile": "cypress\\e2e\\createUser.cy.js",
+      "file": "cypress\\e2e\\createUser.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ebd09861-bac5-4ad3-9a73-218b91d914c6",
+          "title": "Testing create_user API",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC_001_Validate_Create_User_with_valid_data",
+              "fullTitle": "Testing create_user API TC_001_Validate_Create_User_with_valid_data",
+              "timedOut": null,
+              "duration": 351,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('POST', '/api/createUser', (void 0).userData.userData1).then(response => {\n  expect(response.status).to.eq(201);\n  expect(response.body.success).to.be.true;\n  expect(response.body.message).to.equal('User created successfully');\n  expect(response.body).to.have.property('id');\n});",
+              "err": {
+                "message": "TypeError: Cannot read properties of undefined (reading 'userData')",
+                "estack": "TypeError: Cannot read properties of undefined (reading 'userData')\n    at Context.eval (webpack://exbankingautomation/./cypress/e2e/createUser.cy.js:10:47)",
+                "diff": null
+              },
+              "uuid": "325fcb14-b9a4-46f0-90d5-1f23b23fe475",
+              "parentUUID": "ebd09861-bac5-4ad3-9a73-218b91d914c6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC_002_Validate_Create_User_with_Invalid_data",
+              "fullTitle": "Testing create_user API TC_002_Validate_Create_User_with_Invalid_data",
+              "timedOut": null,
+              "duration": 178,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('POST', '/api/createUser', (void 0).userData.userData2).then(response => {\n  expect(response.status).to.eq(400);\n  expect(response.body.success).to.be.false;\n});",
+              "err": {
+                "message": "TypeError: Cannot read properties of undefined (reading 'userData')",
+                "estack": "TypeError: Cannot read properties of undefined (reading 'userData')\n    at Context.eval (webpack://exbankingautomation/./cypress/e2e/createUser.cy.js:19:47)",
+                "diff": null
+              },
+              "uuid": "0bb8d6ce-9fe9-4c28-ab17-91be5aa521bc",
+              "parentUUID": "ebd09861-bac5-4ad3-9a73-218b91d914c6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "325fcb14-b9a4-46f0-90d5-1f23b23fe475",
+            "0bb8d6ce-9fe9-4c28-ab17-91be5aa521bc"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 529,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "userData1": {
+    "first_name": "Test",
+    "last_name": "User",
+    "email": "abc.xyz@example.com",
+    "password": "password123",
+    "phone_number": "1234567890"
+  },
+  "userData2": {
+    "first_name": "Second",
+    "last_name": "User",
+    "email": "abc.xyz@example.com",
+    "password": "password123",
+    "phone_number": "1234567890"
+  },
+  "userData3": {
+    "first_name": "test",
+    "last_name": "user",
+    "email": "test@example.com",
+    "password": "passw0rd"
+  },
+  "userData4": {
+    "first_name": "test1",
+    "last_name": "user1",
+    "email": "abc.xyz@example.com",
+    "password": "password123",
+    "phone_number": "123456"
+  },
+  "userData5": {
+    "first_name": "Third",
+    "last_name": "User",
+    "email": "aaa.123@example.com",
+    "password": "password123",
+    "phone_number": "9090909090"
+  }
+  
+}

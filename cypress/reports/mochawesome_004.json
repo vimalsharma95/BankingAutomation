@@ -1,0 +1,132 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 0,
+    "pending": 0,
+    "failures": 2,
+    "start": "2024-06-26T12:49:44.810Z",
+    "end": "2024-06-26T12:49:45.553Z",
+    "duration": 743,
+    "testsRegistered": 2,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2798d17d-b16d-48ed-89e5-f615c6165624",
+      "title": "",
+      "fullFile": "cypress\\e2e\\createUser.cy.js",
+      "file": "cypress\\e2e\\createUser.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2b099b3c-50fe-4223-9963-8391bd7a05a5",
+          "title": "Testing create_user API",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC_001_Validate_Create_User_with_valid_data",
+              "fullTitle": "Testing create_user API TC_001_Validate_Create_User_with_valid_data",
+              "timedOut": null,
+              "duration": 388,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'POST',\n  url: 'http://localhost:3000/api/createUser',\n  body: userData.userData1\n}).then(response => {\n  expect(response.status).to.eq(201);\n  expect(response.body.success).to.be.true;\n  expect(response.body.message).to.equal('User created successfully');\n  expect(response.body).to.have.property('id');\n});",
+              "err": {
+                "message": "ReferenceError: userData is not defined",
+                "estack": "ReferenceError: userData is not defined\n    at Context.eval (webpack://exbankingautomation/./cypress/e2e/createUser.cy.js:14:14)",
+                "diff": null
+              },
+              "uuid": "503e1176-6bc6-401e-a411-7e4c15124ec9",
+              "parentUUID": "2b099b3c-50fe-4223-9963-8391bd7a05a5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC_002_Validate_Create_User_with_Invalid_data",
+              "fullTitle": "Testing create_user API TC_002_Validate_Create_User_with_Invalid_data",
+              "timedOut": null,
+              "duration": 219,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'POST',\n  url: 'http://localhost:3000/api/createUser',\n  body: userData.userData2\n}).then(response => {\n  expect(response.status).to.eq(400);\n  expect(response.body.success).to.be.false;\n});",
+              "err": {
+                "message": "ReferenceError: userData is not defined",
+                "estack": "ReferenceError: userData is not defined\n    at Context.eval (webpack://exbankingautomation/./cypress/e2e/createUser.cy.js:27:14)",
+                "diff": null
+              },
+              "uuid": "8aa83948-1e8a-4aaf-9802-c967be700440",
+              "parentUUID": "2b099b3c-50fe-4223-9963-8391bd7a05a5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "503e1176-6bc6-401e-a411-7e4c15124ec9",
+            "8aa83948-1e8a-4aaf-9802-c967be700440"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 607,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

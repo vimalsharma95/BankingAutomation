@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-06-26T16:07:47.549Z",
+    "end": "2024-06-26T16:07:47.890Z",
+    "duration": 341,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4918d8de-f48b-474b-a093-959476bd7c56",
+      "title": "",
+      "fullFile": "cypress\\e2e\\deposit.cy.js",
+      "file": "cypress\\e2e\\deposit.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a0107e55-d351-47c9-9062-01911ca50511",
+          "title": "Testing deposit API",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC_001_Deposit_Amount_For_valid_UserID",
+              "fullTitle": "Testing deposit API TC_001_Deposit_Amount_For_valid_UserID",
+              "timedOut": null,
+              "duration": 299,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('deposit').then(function (userData) {\n  this.userData = userData;\n  cy.request('POST', '/api/deposit', this.userData.userData1).then(response => {\n    expect(response.status).to.eq(200);\n    expect(response.body.success).to.be.true;\n    expect(response.body.message).contains('Deposited');\n  });\n});",
+              "err": {
+                "message": "Error: 'deposit' is not valid JSON.\nParse error on line 1:\n\n^\nExpecting 'STRING', 'NUMBER', 'NULL', 'TRUE', 'FALSE', '{', '[', got 'EOF'",
+                "estack": "Error: 'deposit' is not valid JSON.\nParse error on line 1:\n\n^\nExpecting 'STRING', 'NUMBER', 'NULL', 'TRUE', 'FALSE', '{', '[', got 'EOF'\n    at Object.<anonymous> (<embedded>:2772:122492)\n    at Object.tryCatcher (C:\\Users\\Priyanka Bhatt\\AppData\\Local\\Cypress\\Cache\\13.12.0\\Cypress\\resources\\app\\node_modules\\bluebird\\js\\release\\util.js:16:23)\n    at Promise._settlePromiseFromHandler (C:\\Users\\Priyanka Bhatt\\AppData\\Local\\Cypress\\Cache\\13.12.0\\Cypress\\resources\\app\\node_modules\\bluebird\\js\\release\\promise.js:512:31)\n    at Promise._settlePromise (C:\\Users\\Priyanka Bhatt\\AppData\\Local\\Cypress\\Cache\\13.12.0\\Cypress\\resources\\app\\node_modules\\bluebird\\js\\release\\promise.js:569:18)\n    at Promise._settlePromise0 (C:\\Users\\Priyanka Bhatt\\AppData\\Local\\Cypress\\Cache\\13.12.0\\Cypress\\resources\\app\\node_modules\\bluebird\\js\\release\\promise.js:614:10)\n    at Promise._settlePromises (C:\\Users\\Priyanka Bhatt\\AppData\\Local\\Cypress\\Cache\\13.12.0\\Cypress\\resources\\app\\node_modules\\bluebird\\js\\release\\promise.js:690:18)\n    at _drainQueueStep (C:\\Users\\Priyanka Bhatt\\AppData\\Local\\Cypress\\Cache\\13.12.0\\Cypress\\resources\\app\\node_modules\\bluebird\\js\\release\\async.js:138:12)\n    at _drainQueue (C:\\Users\\Priyanka Bhatt\\AppData\\Local\\Cypress\\Cache\\13.12.0\\Cypress\\resources\\app\\node_modules\\bluebird\\js\\release\\async.js:131:9)\n    at Async._drainQueues (C:\\Users\\Priyanka Bhatt\\AppData\\Local\\Cypress\\Cache\\13.12.0\\Cypress\\resources\\app\\node_modules\\bluebird\\js\\release\\async.js:147:5)\n    at Immediate._onImmediate (C:\\Users\\Priyanka Bhatt\\AppData\\Local\\Cypress\\Cache\\13.12.0\\Cypress\\resources\\app\\node_modules\\bluebird\\js\\release\\async.js:17:14)\n    at process.processImmediate (node:internal/timers:476:21)",
+                "diff": null
+              },
+              "uuid": "ba1b8f9b-f214-49d6-8c61-544a530598d9",
+              "parentUUID": "a0107e55-d351-47c9-9062-01911ca50511",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "ba1b8f9b-f214-49d6-8c61-544a530598d9"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 299,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-06-26T13:32:43.620Z",
+    "end": "2024-06-26T13:32:44.094Z",
+    "duration": 474,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f37ce370-43d2-452a-9469-4f0be101d55d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\createUser.cy.js",
+      "file": "cypress\\e2e\\createUser.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d960ab0b-521d-4881-9f19-05a475b166d5",
+          "title": "Testing create_user API",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC_001_Validate_Create_User_with_valid_data",
+              "fullTitle": "Testing create_user API TC_001_Validate_Create_User_with_valid_data",
+              "timedOut": null,
+              "duration": 91,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('createUser').then(function (userData) {\n  this.userData = userData;\n  cy.request('POST', '/api/createUser', userData.userData1).then(response => {\n    expect(response.status).to.eq(201);\n    expect(response.body.success).to.be.true;\n    expect(response.body.message).to.equal('User created successfully');\n    expect(response.body).to.have.property('id');\n  });\n});",
+              "err": {},
+              "uuid": "d32afaf3-d4fa-45f0-a768-c86cf5943cb2",
+              "parentUUID": "d960ab0b-521d-4881-9f19-05a475b166d5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC_002_Validate_Create_User_with_Invalid_data",
+              "fullTitle": "Testing create_user API TC_002_Validate_Create_User_with_Invalid_data",
+              "timedOut": null,
+              "duration": 242,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('POST', '/api/createUser', userData.userData2).then(response => {\n  expect(response.status).to.eq(400);\n  expect(response.body.success).to.be.false;\n});",
+              "err": {
+                "message": "ReferenceError: userData is not defined",
+                "estack": "ReferenceError: userData is not defined\n    at Context.eval (webpack://exbankingautomation/./cypress/e2e/createUser.cy.js:17:42)",
+                "diff": null
+              },
+              "uuid": "d61f83e5-db23-4e55-b02b-513ab47c3675",
+              "parentUUID": "d960ab0b-521d-4881-9f19-05a475b166d5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d32afaf3-d4fa-45f0-a768-c86cf5943cb2"
+          ],
+          "failures": [
+            "d61f83e5-db23-4e55-b02b-513ab47c3675"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 333,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

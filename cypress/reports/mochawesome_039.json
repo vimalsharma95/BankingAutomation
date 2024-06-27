@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-06-26T16:10:20.288Z",
+    "end": "2024-06-26T16:10:20.537Z",
+    "duration": 249,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c64f650d-f21f-4c29-a7a5-8bca08ac659a",
+      "title": "",
+      "fullFile": "cypress\\e2e\\createUser.cy.js",
+      "file": "cypress\\e2e\\createUser.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "094ba669-9f51-4c54-a1a3-97fddb45eeab",
+          "title": "Testing create_user API",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC_001_Create_User_with_valid_data",
+              "fullTitle": "Testing create_user API TC_001_Create_User_with_valid_data",
+              "timedOut": null,
+              "duration": 88,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('createUser').then(function (userData) {\n  this.userData = userData;\n  cy.request('POST', '/api/createUser', this.userData.userData1).then(response => {\n    expect(response.status).to.eq(201);\n    expect(response.body.success).to.be.true;\n    expect(response.body.message).to.equal('User created successfully');\n    expect(response.body).to.have.property('id');\n  });\n});",
+              "err": {},
+              "uuid": "e50444a0-94e1-419a-b036-16f1dd8ad661",
+              "parentUUID": "094ba669-9f51-4c54-a1a3-97fddb45eeab",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC_002_Create_User_with_Missing_Argument",
+              "fullTitle": "Testing create_user API TC_002_Create_User_with_Missing_Argument",
+              "timedOut": null,
+              "duration": 29,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('createUser').then(function (userData) {\n  this.userData = userData;\n  cy.request({\n    method: 'POST',\n    url: '/api/createUser',\n    body: this.userData.userData2,\n    failOnStatusCode: false\n  }).then(response => {\n    expect(response.status).to.eq(400);\n    expect(response.body.success).to.be.false;\n    expect(response.body.message).contains(\"Missing required arguments\");\n  });\n});",
+              "err": {},
+              "uuid": "099ff0fb-782a-47d1-9fcf-714cc46b5850",
+              "parentUUID": "094ba669-9f51-4c54-a1a3-97fddb45eeab",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC_003_Create_User_with_Empty_Payload",
+              "fullTitle": "Testing create_user API TC_003_Create_User_with_Empty_Payload",
+              "timedOut": null,
+              "duration": 33,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('createUser').then(function (userData) {\n  this.userData = userData;\n  cy.request({\n    method: 'POST',\n    url: '/api/createUser',\n    body: this.userData.userData3,\n    failOnStatusCode: false\n  }).then(response => {\n    expect(response.status).to.eq(400);\n    expect(response.body.success).to.be.false;\n    expect(response.body.message).to.equal('Phone number must be equal to 10 characters');\n  });\n});",
+              "err": {},
+              "uuid": "2fbd6be3-2aff-42d6-9ddf-92637cec6413",
+              "parentUUID": "094ba669-9f51-4c54-a1a3-97fddb45eeab",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e50444a0-94e1-419a-b036-16f1dd8ad661",
+            "099ff0fb-782a-47d1-9fcf-714cc46b5850",
+            "2fbd6be3-2aff-42d6-9ddf-92637cec6413"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 150,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

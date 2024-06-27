@@ -1,0 +1,181 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-06-27T10:09:43.457Z",
+    "end": "2024-06-27T10:09:43.778Z",
+    "duration": 321,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "61a56175-3c5d-4d74-a8d0-b03415daa842",
+      "title": "",
+      "fullFile": "cypress\\e2e\\withdraw.cy.js",
+      "file": "cypress\\e2e\\withdraw.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6740a129-5687-4f19-932a-d611c7cb13d5",
+          "title": "Testing withdraw API",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC_001_Validate_Withdraw_For_Valid_Amount",
+              "fullTitle": "Testing withdraw API TC_001_Validate_Withdraw_For_Valid_Amount",
+              "timedOut": null,
+              "duration": 64,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('withdraw').then(function (userData) {\n  this.userData = userData;\n  cy.request('POST', '/api/withdraw', this.userData.userData1).then(response => {\n    expect(response.status).to.eq(200);\n    expect(response.body.success).to.be.true;\n    expect(response.body.message).to.eq('Withdrawn ' + this.userData.userData1.amount + \" successfully\");\n  });\n});",
+              "err": {},
+              "uuid": "4691bbe1-8ed7-4f08-a35c-72ef4aa7d0f1",
+              "parentUUID": "6740a129-5687-4f19-932a-d611c7cb13d5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC_002_Validate_Withdraw_For_Decimal_Value",
+              "fullTitle": "Testing withdraw API TC_002_Validate_Withdraw_For_Decimal_Value",
+              "timedOut": null,
+              "duration": 26,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('withdraw').then(function (userData) {\n  this.userData = userData;\n  cy.request({\n    method: 'POST',\n    url: '/api/withdraw',\n    body: this.userData.userData2,\n    failOnStatusCode: false\n  }).then(response => {\n    expect(response.status).to.eq(200);\n    expect(response.body.success).to.be.true;\n    expect(response.body.message).to.eq('Withdrawn ' + this.userData.userData2.amount + \" successfully\");\n  });\n});",
+              "err": {},
+              "uuid": "22ac77b0-1f96-4938-a363-0a5a7e53d353",
+              "parentUUID": "6740a129-5687-4f19-932a-d611c7cb13d5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC_003_Validate_Witdraw_Zero_Amount",
+              "fullTitle": "Testing withdraw API TC_003_Validate_Witdraw_Zero_Amount",
+              "timedOut": null,
+              "duration": 30,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('withdraw').then(function (userData) {\n  this.userData = userData;\n  cy.request({\n    method: 'POST',\n    url: '/api/withdraw',\n    body: this.userData.userData3,\n    failOnStatusCode: false\n  }).then(response => {\n    expect(response.status).to.eq(400);\n    expect(response.body.success).to.be.false;\n    expect(response.body.message).to.eq('Invalid request');\n  });\n});",
+              "err": {},
+              "uuid": "733af978-5e23-4cb0-8bb6-812a88d524b8",
+              "parentUUID": "6740a129-5687-4f19-932a-d611c7cb13d5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC_004_Validate_Withdraw_For_Negative_Value",
+              "fullTitle": "Testing withdraw API TC_004_Validate_Withdraw_For_Negative_Value",
+              "timedOut": null,
+              "duration": 28,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('withdraw').then(function (userData) {\n  this.userData = userData;\n  cy.request({\n    method: 'POST',\n    url: '/api/withdraw',\n    body: this.userData.userData4,\n    failOnStatusCode: false\n  }).then(response => {\n    expect(response.status).to.eq(400);\n    expect(response.body.success).to.be.false;\n    expect(response.body.message).to.eq('Insufficient balance or invalid amount');\n  });\n});",
+              "err": {},
+              "uuid": "db50e99a-aa0e-47bf-a8f1-9eb521803a43",
+              "parentUUID": "6740a129-5687-4f19-932a-d611c7cb13d5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC_005_Validating_Empty_Withdraw_Payload",
+              "fullTitle": "Testing withdraw API TC_005_Validating_Empty_Withdraw_Payload",
+              "timedOut": null,
+              "duration": 27,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('withdraw').then(function (userData) {\n  this.userData = userData;\n  cy.request({\n    method: 'POST',\n    url: '/api/withdraw',\n    body: this.userData.userData5,\n    failOnStatusCode: false\n  }).then(response => {\n    expect(response.status).to.eq(400);\n    expect(response.body.success).to.be.false;\n    expect(response.body.message).contains('Invalid request');\n  });\n});",
+              "err": {},
+              "uuid": "8bf717d7-6989-4aaf-9c44-b7776a385a3e",
+              "parentUUID": "6740a129-5687-4f19-932a-d611c7cb13d5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4691bbe1-8ed7-4f08-a35c-72ef4aa7d0f1",
+            "22ac77b0-1f96-4938-a363-0a5a7e53d353",
+            "733af978-5e23-4cb0-8bb6-812a88d524b8",
+            "db50e99a-aa0e-47bf-a8f1-9eb521803a43",
+            "8bf717d7-6989-4aaf-9c44-b7776a385a3e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 175,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress\\reports\\.jsons",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

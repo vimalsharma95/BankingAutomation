@@ -1,0 +1,194 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 2,
+    "pending": 0,
+    "failures": 3,
+    "start": "2024-06-26T17:13:27.791Z",
+    "end": "2024-06-26T17:13:28.945Z",
+    "duration": 1154,
+    "testsRegistered": 5,
+    "passPercent": 40,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8c4750da-3750-48a4-9644-e95cd96e9cbf",
+      "title": "",
+      "fullFile": "cypress\\e2e\\deposit.cy.js",
+      "file": "cypress\\e2e\\deposit.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2bbc8001-3c36-4df7-85bb-0b4b949050c6",
+          "title": "Testing deposit API",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC_001_Deposit_Amount_For_valid_UserID",
+              "fullTitle": "Testing deposit API TC_001_Deposit_Amount_For_valid_UserID",
+              "timedOut": null,
+              "duration": 69,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('deposit').then(function (userData) {\n  this.userData = userData;\n  cy.request('POST', '/api/deposit', this.userData.userData1).then(response => {\n    expect(response.status).to.eq(200);\n    expect(response.body.success).to.be.true;\n    expect(response.body.message).contains('Deposited');\n  });\n});",
+              "err": {},
+              "uuid": "61cb718a-0292-494c-b92d-015c3ce78d7d",
+              "parentUUID": "2bbc8001-3c36-4df7-85bb-0b4b949050c6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC_002_Deposit_Amount_For_Invalid_UserID",
+              "fullTitle": "Testing deposit API TC_002_Deposit_Amount_For_Invalid_UserID",
+              "timedOut": null,
+              "duration": 305,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('deposit').then(function (userData) {\n  this.userData = userData;\n  cy.request({\n    method: 'POST',\n    url: '/api/deposit',\n    body: this.userData.userData2,\n    failOnStatusCode: false\n  }).then(response => {\n    expect(response.status).to.eq(400);\n    expect(response.body.success).to.be.false;\n    expect(response.body.message).contains('Deposited');\n  });\n});",
+              "err": {
+                "message": "AssertionError: expected 404 to equal 400",
+                "estack": "AssertionError: expected 404 to equal 400\n    at Context.eval (webpack://exbankingautomation/./cypress/e2e/deposit.cy.js:24:33)",
+                "diff": "- 404\n+ 400\n"
+              },
+              "uuid": "92989c01-5363-414c-acdb-f9847e44a6e4",
+              "parentUUID": "2bbc8001-3c36-4df7-85bb-0b4b949050c6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC_003_Deposit_Zero_Amount_For_valid_User",
+              "fullTitle": "Testing deposit API TC_003_Deposit_Zero_Amount_For_valid_User",
+              "timedOut": null,
+              "duration": 43,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('deposit').then(function (userData) {\n  this.userData = userData;\n  cy.request({\n    method: 'POST',\n    url: '/api/deposit',\n    body: this.userData.userData3,\n    failOnStatusCode: false\n  }).then(response => {\n    expect(response.status).to.eq(400);\n    expect(response.body.success).to.be.false;\n    expect(response.body.message).to.eq('Invalid amount');\n  });\n});",
+              "err": {},
+              "uuid": "8d79229d-a6b8-4b55-bc56-e40ca5957343",
+              "parentUUID": "2bbc8001-3c36-4df7-85bb-0b4b949050c6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC_004_Deposit_Amount_In_Decimal_Value",
+              "fullTitle": "Testing deposit API TC_004_Deposit_Amount_In_Decimal_Value",
+              "timedOut": null,
+              "duration": 215,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('deposit').then(function (userData) {\n  this.userData = userData;\n  cy.request({\n    method: 'POST',\n    url: '/api/createUser',\n    body: this.userData.userData4,\n    failOnStatusCode: false\n  }).then(response => {\n    expect(response.status).to.eq(200);\n    expect(response.body.success).to.be.true;\n    expect(response.body.message).contains('Deposited');\n  });\n});",
+              "err": {
+                "message": "AssertionError: expected 400 to equal 200",
+                "estack": "AssertionError: expected 400 to equal 200\n    at Context.eval (webpack://exbankingautomation/./cypress/e2e/deposit.cy.js:56:33)",
+                "diff": "- 400\n+ 200\n"
+              },
+              "uuid": "d75db339-2053-4ec1-9c99-885d88f1d727",
+              "parentUUID": "2bbc8001-3c36-4df7-85bb-0b4b949050c6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC_005_Deposit_Amount_In_Negative_Value",
+              "fullTitle": "Testing deposit API TC_005_Deposit_Amount_In_Negative_Value",
+              "timedOut": null,
+              "duration": 267,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('deposit').then(function (userData) {\n  this.userData = userData;\n  cy.request({\n    method: 'POST',\n    url: '/api/createUser',\n    body: this.userData.userData5,\n    failOnStatusCode: false\n  }).then(response => {\n    expect(response.status).to.eq(400);\n    expect(response.body.success).to.be.false;\n    expect(response.body.message).contains('Invalid amount');\n  });\n});",
+              "err": {
+                "message": "AssertionError: expected 'Missing required arguments' to include 'Invalid amount'",
+                "estack": "AssertionError: expected 'Missing required arguments' to include 'Invalid amount'\n    at Context.eval (webpack://exbankingautomation/./cypress/e2e/deposit.cy.js:74:36)",
+                "diff": null
+              },
+              "uuid": "570b5806-7c0d-43fb-9c80-cb707012cff8",
+              "parentUUID": "2bbc8001-3c36-4df7-85bb-0b4b949050c6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "61cb718a-0292-494c-b92d-015c3ce78d7d",
+            "8d79229d-a6b8-4b55-bc56-e40ca5957343"
+          ],
+          "failures": [
+            "92989c01-5363-414c-acdb-f9847e44a6e4",
+            "d75db339-2053-4ec1-9c99-885d88f1d727",
+            "570b5806-7c0d-43fb-9c80-cb707012cff8"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 899,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+    "userData1": {
+      "sender_id": 1,
+      "recipient_id": 2,
+      "amount": 10
+    },
+    "userData2": {
+      "sender_id": 1,
+      "recipient_id": 1000,
+      "amount": 10
+    },
+    "userData3": {
+      "sender_id": 1000,
+      "recipient_id": 1,
+      "amount": 10
+    },
+    "userData4": {
+       "sender_id": 1,
+      "recipient_id": 2,
+      "amount": 10000000
+    },
+    "userData5": {
+       "sender_id": 1,
+      "recipient_id": 2,
+      "amount": -10
+    }
+    
+  }
+  
