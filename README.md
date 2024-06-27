@@ -45,6 +45,14 @@ Prerequisites:
 #Node.js
 #npm
 
+My node version is v16.13.1 and npm version is 8.1.2
+
+## Supported Node.js and npm Versions
+
+Node.js: v12.0.0 or higher
+npm: v6.0.0 or higher
+
+
 Installation
 1.Clone the repository:
 
